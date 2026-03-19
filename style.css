@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap');
+
+/* === RESET E BASE === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  /* Gradiente roxo escuro no fundo — mais bonito que cor sólida */
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  /* flex-start = começa do topo, não centraliza vertical */
+  padding: 40px 20px;
+  font-family: 'Inter', sans-serif;
+  color: #fff;
+}
+
+/* === CONTAINER === */
+.container {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+/* === ÁREA DE BUSCA === */
+.search-area {
+  display: flex;
+  gap: 10px;
+}
+
+input {
+  flex: 1;
+  /* Ocupa todo espaço disponível */
+  padding: 14px 18px;
+  border: 2px solid rgba(255,255,255,0.2);
+  border-radius: 12px;
+  background: rgba(255,255,255,0.1);
+  /* Fundo semi-transparente — efeito "vidro" */
+  color: #fff;
+  font-size: 16px;
+  outline: none;
+  backdrop-filter: blur(10px);
+  /* Desfoca o que está atrás — efeito glassmorphism */
+}
+
+input::placeholder {
+  color: rgba(255,255,255,0.5);
+  /* Placeholder mais transparente */
+}
+
+input:focus {
+  border-color: rgba(255,255,255,0.5);
+}
+
+button {
+  padding: 14px 20px;
+  background: linear-gradient(135deg, #6366f1, #a855f7);
+  /* Gradiente roxo no botão */
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: opacity 0.2s;
+}
+
+button:hover {
+  opacity: 0.85;
+}
+
+/* === ERRO === */
+.error {
+  display: none;
+  /* Começa escondido — JavaScript mostra quando necessário */
+  background: rgba(239, 68, 68, 0.2);
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  color: #fca5a5;
+  padding: 14px 18px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+/* === CARD DO CLIMA === */
+.weather-card {
+  display: none;
+  /* Também começa escondido */
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 20px;
+  padding: 32px;
+  text-align: center;
+  flex-direction: column;
+  gap: 8px;
+  animation: aparecer 0.4s ease;
+  /* Animação de entrada quando aparecer */
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+    /* Começa 20px abaixo e sobe */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.city-name {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.weather-icon {
+  font-size: 80px;
+  /* Emoji grande do clima */
+  line-height: 1;
+  margin: 10px 0;
+}
+
+.temperature {
+  font-size: 64px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.description {
+  color: rgba(255,255,255,0.7);
+  font-size: 18px;
+  text-transform: capitalize;
+  /* Primeira letra maiúscula */
+  margin-top: 4px;
+}
+
+/* === DETALHES (umidade, vento, sensação) === */
+.details {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,0.2);
+  /* Linha separadora */
+}
+
+.detail-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: rgba(255,255,255,0.8);
+}
+
+.detail-item i {
+  font-size: 20px;
+  color: #a855f7;
+  /* Ícones em roxo */
+}
+
+/* === LOADING === */
+.loading {
+  display: none;
+  text-align: center;
+  font-size: 16px;
+  color: rgba(255,255,255,0.7);
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+/* === RESPONSIVO === */
+@media (max-width: 480px) {
+  .temperature { font-size: 48px; }
+  .weather-icon { font-size: 60px; }
+}
+.data-hoje {
+  color: rgba(255,255,255,0.5);
+  font-size: 14px;
+  margin-top: 4px;
+}

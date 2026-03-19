@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>App de Clima</title>
+  <link rel="stylesheet" href="style.css">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Biblioteca de ícones igual usamos no perfil pessoal -->
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>🌤️ Previsão do Tempo</h1>
+
+    <!-- ÁREA DE BUSCA -->
+    <div class="search-area">
+      <input type="text" id="cityInput" placeholder="Digite uma cidade...">
+      <!-- Campo onde o usuário digita o nome da cidade -->
+      
+      <button id="searchBtn">
+        <i class="fas fa-search"></i>
+        <!-- Ícone de lupa -->
+        Buscar
+      </button>
+    </div>
+
+    <!-- MENSAGEM DE ERRO (começa escondida) -->
+    <div class="error" id="error">
+      ❌ Cidade não encontrada. Tente novamente!
+      <!-- Só aparece se a cidade não existir -->
+    </div>
+
+    <!-- CARD DO CLIMA (começa escondido) -->
+    <div class="weather-card" id="weatherCard">
+
+      <div class="city-name" id="cityName"></div>
+      <!-- Nome da cidade retornado pela API -->
+
+      <div class="weather-icon" id="weatherIcon"></div>
+      <!-- Emoji do clima (sol, chuva, nuvem...) -->
+
+      <div class="temperature" id="temperature"></div>
+      <!-- Temperatura em graus -->
+
+      <div class="description" id="description"></div>
+      <!-- Descrição do clima (ex: "céu limpo") -->
+
+       <div class="data-hoje" id="dataHoje"></div>
+      <!-- Vai mostrar ex: Quarta-feira, 19 de Mar de 2026 -->
+
+      <!-- DETALHES EXTRAS -->
+      <div class="details">
+
+        <div class="detail-item">
+          <i class="fas fa-droplet"></i>
+          <!-- Ícone de gota d'água -->
+          <span id="humidity"></span>
+          <!-- Umidade do ar -->
+        </div>
+
+        <div class="detail-item">
+          <i class="fas fa-wind"></i>
+          <!-- Ícone de vento -->
+          <span id="wind"></span>
+          <!-- Velocidade do vento -->
+        </div>
+
+        <div class="detail-item">
+          <i class="fas fa-temperature-half"></i>
+          <!-- Ícone de termômetro -->
+          <span id="feelsLike"></span>
+          <!-- Sensação térmica -->
+        </div>
+
+      </div>
+    </div>
+
+    <!-- LOADING (aparece enquanto busca os dados) -->
+    <div class="loading" id="loading">
+      <i class="fas fa-spinner fa-spin"></i>
+      <!-- Ícone girando de carregamento -->
+      Buscando...
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
